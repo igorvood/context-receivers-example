@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "2.2.0"
     kotlin("plugin.spring") version "2.2.0"
+    kotlin("plugin.serialization") version "2.2.0"
     id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.google.devtools.ksp") version "2.2.0-2.0.2"
@@ -41,6 +42,7 @@ dependencies {
     implementation("org.zalando:logbook-spring-boot-starter:3.12.2")
     implementation("org.zalando:logbook-netty:3.12.2")
     implementation("org.zalando:logbook-api:3.12.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
