@@ -16,7 +16,8 @@ class RestController(val restClient: RestClient) {
 
             val message = this@withBusiness
             println(message)
-//            restClient.callSecond()
+
+            restClient.otherFun()
 
             val callSecond = callSecond(restClient.webClient)
             callSecond

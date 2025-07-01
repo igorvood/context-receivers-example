@@ -9,10 +9,13 @@ import ru.vood.context.receivers.example.contextreceiversexample.context.Busines
 
 @Service
 class RestClient(val webClient: WebClient)
-    : IRestClient
+//    : IRestClient
 {
 
-    override fun BusinessContext.callSecond(): SomeData {
+    fun otherFun() {}
+
+    //    override fun BusinessContext.callSecond(): SomeData {
+    fun BusinessContext.callSecond1(): SomeData {
 //         fun callSecond(): SomeData {
         val traceId1 = "this.traceId"
 
