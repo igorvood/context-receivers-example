@@ -3,6 +3,7 @@ plugins {
     kotlin("plugin.spring") version "2.2.0"
     id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7"
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
 }
 
 group = "ru.vood.context.receivers.example"
@@ -19,6 +20,18 @@ repositories {
 }
 
 dependencies {
+
+    val arrowVersion = "2.0.0-alpha.3"
+
+    implementation(platform("io.arrow-kt:arrow-stack:$arrowVersion"))
+    implementation("io.arrow-kt:arrow-core")
+    implementation("io.arrow-kt:arrow-fx-coroutines")
+    implementation("io.arrow-kt:arrow-optics")
+    implementation("io.arrow-kt:arrow-optics-reflect")
+    implementation("io.arrow-kt:arrow-resilience")
+    ksp("io.arrow-kt:arrow-optics-ksp-plugin:$arrowVersion")
+
+
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
