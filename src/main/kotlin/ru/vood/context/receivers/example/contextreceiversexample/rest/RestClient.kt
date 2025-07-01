@@ -5,11 +5,17 @@ import kotlinx.serialization.json.Json
 import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.awaitBody
+import ru.vood.context.receivers.example.contextreceiversexample.context.BusinessContext
 
 @Service
-class RestClient (val webClient: WebClient) {
+class RestClient(val webClient: WebClient)
+//    : IRestClient
+{
 
-    fun callSecond(): SomeData {
+//    override fun BusinessContext.callSecond(): SomeData {
+         fun callSecond(): SomeData {
+        val traceId1 = "this.traceId"
+
         val runBlocking = runBlocking {
             webClient
                 .get()
@@ -19,8 +25,7 @@ class RestClient (val webClient: WebClient) {
                         .build()
                 }
                 .headers { headers ->
-                    headers.apply { add("TRACE_ID", "1") }
-
+                    headers.apply { add("TRACE_ID", traceId1) }
                 }
                 .retrieve()
                 .awaitBody<String>()
