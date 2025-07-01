@@ -18,10 +18,13 @@ open class LoggingConfiguration {
 
 class RestLogWriter: HttpLogWriter{
     override fun write(precorrelation: Precorrelation, request: String) {
+        LOGGER.info("==============================================================================================")
         LOGGER.info("Request\n$request")
+
     }
 
     override fun write(correlation: Correlation, response: String) {
+        LOGGER.info("==============================================================================================")
         LOGGER.info("Response\n$response")
     }
 

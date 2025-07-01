@@ -12,8 +12,11 @@ class RestController(val restClient: RestClient) {
     @GetMapping("/one")
     fun req_1(): SomeData {
         val withBusiness = withBusiness(BusinessContext("qwewq")) {
-            println(this@withBusiness)
-            restClient.callSecond()
+
+            val message = this@withBusiness
+            println(message)
+            val callSecond = callSecond(restClient.webClient)
+            callSecond
         }
         return withBusiness
     }
