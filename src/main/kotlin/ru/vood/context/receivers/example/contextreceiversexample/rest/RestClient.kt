@@ -14,10 +14,10 @@ class RestClient(val webClient: WebClient)
 
     fun otherFun() {}
 
-    //    override fun BusinessContext.callSecond(): SomeData {
+//        override fun BusinessContext.callSecond(): SomeData {
     fun BusinessContext.callSecond1(): SomeData {
 //         fun callSecond(): SomeData {
-        val traceId1 = "this.traceId"
+        val traceId1 = this.traceId
 
         val runBlocking = runBlocking {
             webClient
