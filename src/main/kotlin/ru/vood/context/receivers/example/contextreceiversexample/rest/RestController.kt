@@ -4,7 +4,6 @@ import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RestController
-import ru.vood.context.receivers.example.contextreceiversexample.configuration.RestLogWriter
 import ru.vood.context.receivers.example.contextreceiversexample.context.BusinessContext
 import ru.vood.context.receivers.example.contextreceiversexample.context.withBusiness
 
