@@ -10,10 +10,16 @@ import ru.vood.context.receivers.example.contextreceiversexample.context.Busines
 import ru.vood.context.receivers.example.contextreceiversexample.context.withBusiness
 
 @RestController
-class RestController(val restClient: RestClient) {
+class RestControllerEx(
+    val restClient: RestClient,
+    val service_1: Service_1
+
+) {
 
     @GetMapping("/one")
     fun req_1(): SomeData {
+        service_1.callNext()
+
         return with(restClient) {
             withBusiness(BusinessContext("QWERTY")) {
 //                val callSecond = callSecond(restClient.webClient)
@@ -37,6 +43,6 @@ class RestController(val restClient: RestClient) {
     }
 
     companion object {
-        private val LOGGER = LoggerFactory.getLogger(RestController::class.java)
+        private val LOGGER = LoggerFactory.getLogger(RestControllerEx::class.java)
     }
 }
