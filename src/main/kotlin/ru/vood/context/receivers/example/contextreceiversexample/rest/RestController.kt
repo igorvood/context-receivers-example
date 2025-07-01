@@ -1,8 +1,10 @@
 package ru.vood.context.receivers.example.contextreceiversexample.rest
 
+import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RestController
+import ru.vood.context.receivers.example.contextreceiversexample.configuration.RestLogWriter
 import ru.vood.context.receivers.example.contextreceiversexample.context.BusinessContext
 import ru.vood.context.receivers.example.contextreceiversexample.context.withBusiness
 
@@ -15,6 +17,8 @@ class RestController(val restClient: RestClient) {
 
             val message = this@withBusiness
             println(message)
+//            restClient.callSecond()
+
             val callSecond = callSecond(restClient.webClient)
             callSecond
         }
@@ -27,5 +31,7 @@ class RestController(val restClient: RestClient) {
     ): SomeData {
         return SomeData("second $traceId")
     }
-
+    companion object{
+        private val LOGGER = LoggerFactory.getLogger(RestController::class.java)
+    }
 }
