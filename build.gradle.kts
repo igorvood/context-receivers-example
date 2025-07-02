@@ -66,6 +66,7 @@ tasks.withType<Test> {
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
+//        freeCompilerArgs.addAll("-Xcontext-receivers")
         freeCompilerArgs.addAll("-Xcontext-parameters")
     }
 }
