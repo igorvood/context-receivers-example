@@ -14,12 +14,12 @@ class ARestClient(val webClient: WebClient) : AIRestClient {
 
     fun otherFun() {}
 
-    context(BusinessContext, DealContext)
+    context(bs: BusinessContext, dc: DealContext)
     override fun callSecond(): SomeData {
 
 //    fun callSecond1(): SomeData {
 //         fun callSecond(): SomeData {
-        val traceId1 = traceId
+        val traceId1 = bs.traceId
 
         val runBlocking = runBlocking {
             webClient
@@ -32,7 +32,7 @@ class ARestClient(val webClient: WebClient) : AIRestClient {
                 .headers { headers ->
                     headers.apply {
                         add("TRACE_ID", traceId1)
-                        add("DEAL_ID", dealId)
+                        add("DEAL_ID", dc.dealId)
                     }
                 }
                 .retrieve()

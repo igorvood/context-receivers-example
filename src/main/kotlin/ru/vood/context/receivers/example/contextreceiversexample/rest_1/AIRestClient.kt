@@ -5,6 +5,6 @@ import ru.vood.context.receivers.example.contextreceiversexample.context.DealCon
 import ru.vood.context.receivers.example.contextreceiversexample.rest.SomeData
 
 interface AIRestClient {
-    context(BusinessContext, DealContext)
+    context(bs: BusinessContext, dc: DealContext)
     fun callSecond(): SomeData
 }
