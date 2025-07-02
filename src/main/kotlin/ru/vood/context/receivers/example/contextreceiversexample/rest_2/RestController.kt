@@ -20,12 +20,12 @@ class BRestControllerEx(
 
     @GetMapping("/ones")
     fun req_1(): SomeData {
-        service_1.callNext()
+//        service_1.callNext()
 
         return with(restClient) {
             withBusiness(BusinessContext("QWERTY")) {
                 withBusiness(DealContext("REAL")) {
-//                val callSecond = callSecond(restClient.webClient)
+                    service_1.callNext()
                     callSecond()
                 }
             }

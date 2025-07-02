@@ -12,7 +12,7 @@ import ru.vood.context.receivers.example.contextreceiversexample.rest.SomeData
 @Service
 class BRestClient(val webClient: WebClient) : BIRestClient {
 
-    fun otherFun() {}
+
 
     context(bs: BusinessContext, dc: DealContext)
     override fun callSecond(): SomeData {
